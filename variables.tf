@@ -836,3 +836,6 @@ variable "runner_yum_update" {
   type        = bool
   default     = true
 }
+
+variable "gitlab_sg_id" {
+}
