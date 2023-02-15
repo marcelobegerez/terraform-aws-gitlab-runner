@@ -883,5 +883,5 @@ variable "runner_yum_update" {
   default     = true
 }
 
-variable "gitlab_sg_id" {
-}
+#variable "gitlab_sg_id" {
+#}
