@@ -150,16 +150,16 @@ data "aws_ami" "docker_machine" {
   owners = var.runner_ami_owners
 }
     
-resource "aws_security_group_rule" "allow_all" {
-  type            = "ingress"
-  from_port       = 0
-  to_port         = 65535
-  protocol        = "tcp"
+#resource "aws_security_group_rule" "allow_all" {
+#  type            = "ingress"
+#  from_port       = 0
+#  to_port         = 65535
+#  protocol        = "tcp"
   # Opening to 0.0.0.0/0 can lead to security vulnerabilities.
-  source_security_group_id = var.gitlab_sg_id
+#  source_security_group_id = var.gitlab_sg_id
 
-  security_group_id = aws_security_group.runner.id
-}
+ # security_group_id = aws_security_group.runner.id
+#}
 
 resource "aws_autoscaling_group" "gitlab_runner_instance" {
   name                      = var.enable_asg_recreation ? "${aws_launch_template.gitlab_runner_instance.name}-asg" : "${var.environment}-as-group"
